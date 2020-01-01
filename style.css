@@ -1,0 +1,54 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #F7F7F7;
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto", "Helvetica", sans-serif;
+}
+
+.header {
+	width: 100vw;
+	height: 75px;
+    margin: 10px;
+    text-align: center;
+}
+button {
+	width: 150px;
+	height: 35px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+    border-radius: 10px;
+}
+.green {
+	color: #F7F7F7;
+	background-color: #0f771d;
+}
+.red {
+	color: #F7F7F7;
+	background-color: #AF1E2D;
+}
+.click {
+	width: 80px;
+	height: 80px;
+    border-radius: 40%;
+    margin: 0 auto;
+	border: none;
+	outline: none;
+	background-color: #1a53da;
+	cursor: pointer;
+    margin: 0 auto;
+	color: #c8c8c8d9;
+}
+.click:active {
+	background-color: #1344b8;
+}
+
+.score {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px;
+}
