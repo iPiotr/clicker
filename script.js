@@ -1,33 +1,42 @@
-const clicker = document.getElementById('clicker');
-const score = document.getElementById('score');
-const saveStorage = document.getElementById('saveStorage');
-const clearStorage = document.getElementById('clearStorage');
-const storage = window.localStorage;
+function OrderFormController($scope) {
+    
+    $scope.services = [{
+        name: 'Necessary expenses',
+        price: 3000,
+        active: true
+    }, {
+        name: 'Credit',
+        price: 2000,
+        active: false
+    }, {
+        name: 'Fuel',
+        price: 400,
+        active: false
+    }, {
+        name: 'Car',
+        price: 2200,
+        active: false
+    }, {
+        name: 'Food',
+        price: 200,
+        active: true
+    }];
 
-let save = {};
+    $scope.toggleActive = function (s) {
+        s.active = !s.active;
+    };
 
-function load() {
-    if (storage.getItem("save")) {
-        save = JSON.parse(storage.getItem("save"));
-        score.innerHTML = save.count;
-    } else {
-        save.count = 0;
-        score.innerHTML = 0;
-    }
+    $scope.total = function () {
+
+        let total = 0;
+
+        angular.forEach($scope.services, function (s) {
+            if (s.active) {
+                total += s.price;
+            }
+        });
+
+        return total;
+    };
+
 }
-
-load();
-
-clicker.addEventListener("click", function () {
-    save.count++;
-    score.innerHTML = save.count;
-});
-
-saveStorage.addEventListener("click", function () {
-    storage.setItem("save", JSON.stringify(save));
-});
-
-clearStorage.addEventListener("click", function () {
-    storage.removeItem("save");
-    score.innerHTML = save.count;
-});

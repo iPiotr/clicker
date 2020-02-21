@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Angular list</title>
 </head>
-<body>
-    
-    <div class="header">
-        <button class="green" id="saveStorage">SAVE STORAGE</button>
-        <button class="red" id="clearStorage">CLEAR STORAGE</button>
-    </div>
 
-        <div class="click" id="clicker"></div>
-        <div class="score" id="score">0</div>
+<body ng-app ng-controller="OrderFormController">
+    <form>
 
-<script src="script.js"></script>
-    
+        <h1>Expenses</h1>
+
+        <ul>
+            <li ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{ active:service.active }">
+
+                {{ service.name }} <span>{{ service.price | currency: "$ " }}</span>
+            </li>
+        </ul>
+
+        <div class="total">
+            Total: <span>{{ total() | currency:"$ " }}</span>
+        </div>
+
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="script.js"></script>
+
 </body>
 </html>
