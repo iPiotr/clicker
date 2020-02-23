@@ -1,4 +1,4 @@
-function OrderFormController($scope) {
+function Order($scope) {
     
     $scope.services = [{
         name: 'Necessary expenses',
